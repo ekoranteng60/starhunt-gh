@@ -1,0 +1,31 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | StarHunt Gh Admin{% endblock %}
+
+{% block branding %}
+<div id="site-name"><a href="{% url 'admin:index' %}">StarHunt Gh Admin</a></div>
+{% endblock %}
+
+{% block extrastyle %}{{ block.super }}
+<style>
+  /* Ghana flag colors: red, gold, and green */
+  :root, html[data-theme="light"], html[data-theme="dark"] {
+    --primary: #006B3F;
+    --secondary: #004D2C;
+    --accent: #FCD116;
+    --header-bg: #006B3F;
+    --header-color: #FCD116;
+    --header-branding-color: #FCD116;
+    --header-link-color: #FFFFFF;
+    --breadcrumbs-bg: #CE1126;
+    --link-fg: #006B3F;
+    --link-hover-color: #CE1126;
+    --button-bg: #006B3F;
+    --button-hover-bg: #004D2C;
+    --default-button-bg: #CE1126;
+    --default-button-hover-bg: #A00D1E;
+  }
+</style>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
