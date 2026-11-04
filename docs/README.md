@@ -52,3 +52,56 @@ As an **administrator**, I want to **review, edit, and remove player and scout a
 - Only administrators can access the admin panel.
 - An administrator can search and filter player profiles.
 - An administrator can deactivate any account that breaks the rules and regulations.
+
+## Mis-user Scenarios 
+
+### Mis-user Scenario 1: Scammer pretending to be an agent
+As a **fake agent**, I want to **pose as a scout** so I can **contact young players and scam them or their families**.
+
+**Mitigation criteria**
+- New scout accounts start as unverified.
+- Unverified scouts will not be able to search or view player profiles.
+- Only an administrator can verify a scout.
+- Player contact details are never shown to unverified scouts.
+
+### Mis-user Scenario 2: Brute force login 
+As an **attacker**, I want to **brute-force a player's password by trying many combinations** so I can **take over their account**.
+
+**Mitigation criteria**
+- Passwords must be at least 8 characters and cannot be common passwords (Django password validators).
+- Passwords are stored hashed, never in plain text.
+- Login errors do not reveal whether the username exists.
+- An account is locked out for a period of time after repeated failed logins.
+
+### Mis-user Scenario 3: Editing someone else's profile
+As a **malicious user**, I want to **change another player's profile** so I can **mess up their stats or change their highlight link**.
+
+**Mitigation criteria**
+- Each profile is connected to exactly one user account.
+- A player can only access the edit page for their own profile.
+- Requests to edit another player's profile are rejected.
+- Only administrators can alter any profile.
+
+### Mis-user Scenario 4: Malicious highlight link
+As an **attacker**, I want to **post a harmful website as my highlight link** so I can **trick scouts into visiting a phishing or malware site**.
+
+**Mitigation criteria**
+- Only links starting with https://www.youtube.com/ or https://youtu.be/ are accepted.
+- Any other link is rejected with the message "Please enter a valid YouTube link for your highlights."
+- The check runs on the server, so it cannot be skipped by editing the page in the browser.
+
+### Mis-user Scenario 5: Script injection
+As an **attacker**, I want to **put a script in my profile name or team field** so I can **steal the session of any scout who views my profile**.
+
+**Mitigation criteria**
+- All text entered by users is escaped before it is shown on a page (Django template auto-escaping stays on).
+- Text fields have maximum lengths.
+- Position, region, and preferred foot only accept values from fixed lists.
+
+### Mis-user Scenario 6: Stealing secrets from the code
+As an **attacker**, I want to **find passwords or secret keys in the public GitHub repo** so I can **break into the database or forge logins**.
+
+**Mitigation criteria**
+- The database password and Django secret key are stored in a .env file, not in the code.
+- The .env file is listed in .gitignore and never committed.
+- The repo only includes .env.example, which contains placeholder values.
