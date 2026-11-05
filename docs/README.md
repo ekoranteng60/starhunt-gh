@@ -107,3 +107,8 @@ As an **attacker**, I want to **find passwords or secret keys in the public GitH
 - The repo only includes .env.example, which contains placeholder values.
 
 ![Starhunt Gh mockup](images/mockup.jpeg)
+
+## Architecture Diagrams
+ 
+ ### Context Diagram
+ ![C4 Context diagram](images/c4-context.png)
