@@ -106,7 +106,17 @@ As an **attacker**, I want to **find passwords or secret keys in the public GitH
 - The .env file is listed in .gitignore and never committed.
 - The repo only includes .env.example, which contains placeholder values.
 
-![Starhunt Gh mockup](images/mockup.jpeg)
+## Mockup
+
+![StarHunt Gh mockup](images/mockup.jpeg)
+
+| Screen | Supports |
+|---|---|
+| Sign up / Log in | User Story 1 |
+| Player profile | User Stories 1 and 2 |
+| Scout search | User Story 3 |
+| Guardian approval | User Story 4 |
+| Admin | User Stories 5 and 6 |
 
 ## Architecture Diagrams
  
