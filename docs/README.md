@@ -105,3 +105,5 @@ As an **attacker**, I want to **find passwords or secret keys in the public GitH
 - The database password and Django secret key are stored in a .env file, not in the code.
 - The .env file is listed in .gitignore and never committed.
 - The repo only includes .env.example, which contains placeholder values.
+
+![Starhunt Gh mockup](images/mockup.jpeg)
