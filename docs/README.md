@@ -124,7 +124,7 @@ As an **attacker**, I want to **find passwords or secret keys in the public GitH
  ![C4 Context diagram](images/c4-context.png)
 
  ### Container Diagram
-![C4 Container diagram](images/c4-container.png)
+![C4 Container diagram](images/c4-container-3.png)
 
 ### Component Diagram
-![C4 Component diagram](images/c4-component.png)
+![C4 Component diagram](images/c4-component-3.png)
